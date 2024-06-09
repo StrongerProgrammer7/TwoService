@@ -32,13 +32,6 @@ function getOptionsServer(controller)
 		}
 	));
 
-	// app.all('*', function (req, res, next)
-	// {
-	// 	res.header("Access-Control-Allow-Origin", "*");
-	// 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-	// 	next();
-	// });
-
 	app.use(express.json());
 	app.use(bodyParser.urlencoded({ extended: true }));
 	app.use(fileUpload());
@@ -73,11 +66,11 @@ function getOptionsServer(controller)
 
 	const rateLimiterApi = rateLimit(
 		{
-			windowMs: 24 * 60 * 60 * 1000, // 24 hrs in milliseconds
-			max: 300000, // maximum number of request inside a window
-			message: "You have exceeded the 100 requests in 24 hrs limit!", // the message when they exceed limit
-			standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-			legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+			windowMs: 24 * 60 * 60 * 1000,
+			max: 300000,
+			message: "You have exceeded the 100 requests in 24 hrs limit!",
+			standardHeaders: true,
+			legacyHeaders: false,
 		});
 	app.use('/api', rateLimiterApi);
 

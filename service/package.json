@@ -1,14 +1,14 @@
 {
-  "name": "trendgithub",
+  "name": "twoservice",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "dev":"nodemon ./servers.js",
-    "start": "node ./server_users/app.js",
+    "start": "node ./servers.js",
     "run_sql":"node ./utils/runSqlScript",
     "init_db":"node ./utils/runSqlScript postgres ../sql_scripts/dbUserService",
-    "generate_data":"node ./utils/runSqlScript postgres ../sql_scripts/genearteUsers"
+    "generate_data":"node ./utils/runSqlScript postgres ../sql_scripts/generateUsers"
   },
   "repository": {
     "type": "git",
