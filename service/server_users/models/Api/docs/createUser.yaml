@@ -1,0 +1,28 @@
+"/api/create_user":
+  post:
+    tags:
+      - User - 8000
+    summary: Create user
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              email:
+                type: string
+            required:
+              - name
+              - email
+            example:
+              name: "John"
+              email: "exampl@mail.ru"
+    responses:
+      "201":
+        $ref: "#/components/responses/201Success"
+      "404":
+        $ref: "#/components/responses/404NotCorrectData"
+      "500":
+        $ref: "#/components/responses/500InternalError"

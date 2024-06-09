@@ -1,0 +1,31 @@
+"/api/action_user/{id}":
+  get:
+    tags:
+      - History - 8001
+    summary: Get user's history
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: Numeric ID of user
+      - in: query
+        name: page
+        default: 1
+        schema:
+          type: integer
+        description: The number of items to skip before starting to collect the result set
+      - in: query
+        name: limit
+        default: 10
+        schema:
+          type: integer
+        description: The numbers of items to return
+    responses:
+      "201":
+        $ref: "#/components/responses/201Success"
+      "404":
+        $ref: "#/components/responses/404NotCorrectData"
+      "500":
+        $ref: "#/components/responses/500InternalError"

@@ -1,0 +1,40 @@
+"/api/users":
+  get:
+    tags:
+      - User - 8000
+    summary: Get info about all users
+    responses:
+      "201":
+        description: Success!
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  $ref: "#/components/schemas/AllUsers"
+                message:
+                  type: string
+              example:
+                data:
+                  [
+                    {
+                      "name": "Name",
+                      "email": "Email"
+                    },
+                  ]
+                message: Success!
+      "500":
+        $ref: "#/components/responses/500InternalError"
+
+components:
+  schemas:
+    AllUsers:
+      type: array
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+          email:
+            type: string

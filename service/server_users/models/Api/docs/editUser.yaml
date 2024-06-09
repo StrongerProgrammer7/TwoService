@@ -1,0 +1,35 @@
+"/api/edit_user/{id}":
+  put:
+    tags:
+      - User - 8000
+    summary: Edit user
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: Numeric ID of user
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              email:
+                type: string
+            required:
+              - name
+              - email
+            example:
+              name: "John2"
+              email: "exampl2@mail.ru"
+    responses:
+      "201":
+        $ref: "#/components/responses/201Success"
+      "404":
+        $ref: "#/components/responses/404NotCorrectData"
+      "500":
+        $ref: "#/components/responses/500InternalError"
